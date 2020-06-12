@@ -1,7 +1,8 @@
 // Iteration 1: All directors? - Get the array of all directors.
 
 function getAllDirectors(movies) {
-	const directors =
+	const directors = 
+
 }
 getAllDirectors(movies);
 
@@ -29,13 +30,14 @@ getAllDirectors(movies);
 // 	const stevenDrama = 
 // 	return stevenDrama;
 // };
+// howManyMovies(movies);
 
 // Iteration 3: All rates average - Get the average of all rates with 2 decimals
 
 // function ratesAverage(movies) {
-// 	const totalMovies = movies.length;
-// 	let sumAverage = movies.reduce((acc, key) => {
-		
+// 	const totalAverage = movies.length;
+// 	const sumAverage = movies.reduce((acc, key) => {
+
 // 	}, 0)
 		
 // }
@@ -43,36 +45,36 @@ getAllDirectors(movies);
 
 // Iteration 4: Drama movies - Get the average of Drama er(key) Movies
 
-// function dramaMoviesRate(movies) {
-// 	const dramaMovies = movies.filter(key => key.genre.includes("Drama")).filter(key => key.rate)
+function dramaMoviesRate(movies) {
+	const dramaMovies = movies.filter(key => key.genre.includes("Drama")).filter(key => key.rate);
 	
-// 	}
-// 	const averageRateDrama = 
-// }
-// dramaMoviesRate(movies);
+	const averageRateDrama = 
+
+}
+dramaMoviesRate(movies);
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 
-// function orderByYear(movies) {
-// 	let newArray = [...movies];
-// 	newArray.sort(function(a, b) {
-	
-// 	})
-// 	return newArray;
-// }
-// orderByYear(movies);
+function orderByYear(movies) {
+	let newArray = [...movies];
+	newArray.sort(function(a, b) {
+		
+	});
+	return newArray;
+}
+orderByYear(movies);
 
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 
-// function orderAlphabetically(movies) {
-// 	let titleArray = [...movies];
-// 	const orderedTitle = 
+function orderAlphabetically(movies) {
+	let titleArray = [...movies];
+	const orderedTitle = 
 
-// 	const twenty = 
-// 	return twenty;
-// }
-// orderAlphabetically(movies);
+	const twenty = 
+	return twenty;
+}
+orderAlphabetically(movies);
 
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
