@@ -37,12 +37,48 @@ function ratesAverage(movies) {
   
     var resultFinal= result/movies.length;
     console.log(resultFinal);
-  
-    return resultFinal
+  //afficher le résultat avec 2 décimals
+    return resultFinal.toFixed(2)
   }
   
 // Iteration 4: Drama movies - Get the average of Drama Movies
+function dramaMoviesRate(movies){
+  //filtrer sur les films Drama
+var dramaMovie = movies.filter(function(el) {
+        return el.genre.includes('Drama')
+        });
+//Cumuler les rates des films drama 
+var rate=dramaMovie.reduce(function(acc,value){
+  return acc+ value.rate;
+}, 0);
+//Calculer la moyenne des rates des films drama
+var avgRate=rate/dramaMovie.length;
 
+// afficher le resultat avec 2 decimals
+return avgRate.toFixed(2)
+}
+
+// Iteration 5: Ordering by year - Order by year, ascending (in growing order)
+
+function orderByYear(movies){
+  //copie du tableau 
+  var copy = movies.slice();
+  //muter le tableau avec les years 
+  var mute = copy.map(function(el){
+   return el.year });
+   //muter le tableau avec les titres
+  var muteTitle = copy.map(function(el){
+     return el.title});
+  //ranger par ordre croissant en fonction des years
+  var ascendingOrder = mute.sort(function(a, b){
+    if (a < b)return -1;
+    if (a > b)return 1;
+    if(a === b) return 0;
+  })
+  console.log (ascendingOrder);
+  }
+  
+  orderByYear(movies)
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 
