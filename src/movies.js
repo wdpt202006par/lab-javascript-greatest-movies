@@ -1,16 +1,14 @@
 // Iteration 1: All directors? - Get the array of all directors.
 // utiliser map et function callback  getAllDirectors(tableau)
   
-function getAllDirectors(array){
-    return array;
+function getAllDirectors(movieList){
+  return movieList.map(function(movie){
+    return movie.director;
+ })
 }
-getAllDirectors(movies);
+const result = getAllDirectors(movies);
 
-  var result= movies.map(function(getAllDirectors){
-     return getAllDirectors.director;
-  })
-
-console.log(result)
+console.log(result);
 
 
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors. How could you "clean" a bit this array and make it unified (without duplicates)?
