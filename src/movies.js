@@ -21,6 +21,21 @@ function howManyMovies(movies) {
 console.log(howManyMovies(movies));
 
 // Iteration 3: All rates average - Get the average of all rates with 2 decimals
+function ratesAverage(movies) {
+    if(movies.length === 0) {
+        return 0;
+    }
+    if (movies.includes('rate')){ // TO BE CHECKED
+        continue;
+    }
+    var rateArr = movies.map(function(el){
+        return el['rate'];
+    }).reduce(function(totalRate, rate){
+        return (totalRate+rate);
+    }, 0)
+    return Number((rateArr/movies.length).toFixed(2));
+}
+console.log(ratesAverage(movies));
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 
