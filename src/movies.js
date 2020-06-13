@@ -47,7 +47,33 @@ function dramaMoviesRate (movies) {
     return avgDramaRate;
 }
 
+/*
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
+function orderByYear(movies){
+    var moviescopy= movies.slice();
+    var filterMoviescopy = moviescopy.filter(function (el){
+        return el["year"];
+    }).sort(function(a,b){
+        if (a < b) return -1;
+        if (a > b) return 1;
+        if (a === b) return 0;
+    })
+
+    return filterMoviescopy;
+}
+console.log(orderByYear(movies));
+*/
+/*function orderByYear(movies){
+    var moviescopy = movies.slice();
+    var yearsArr = moviescopy.sort(function(a,b){
+        if (a < b) return -1;
+        if (a > b) return 1;
+        if (a = b) return 0;
+    })
+    return yearsArr;
+}
+*/
+
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 
