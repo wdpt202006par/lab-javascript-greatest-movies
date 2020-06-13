@@ -25,9 +25,10 @@ function ratesAverage(movies) {
     if(movies.length === 0) {
         return 0;
     }
-    if (movies.includes('rate')){ // TO BE CHECKED
-        continue;
-    }
+    /*if (movies.length === 1) {
+        return Number(rate)
+    } // TO BE CHECKED*/
+        
     var rateArr = movies.map(function(el){
         return el['rate'];
     }).reduce(function(totalRate, rate){
@@ -38,6 +39,13 @@ function ratesAverage(movies) {
 console.log(ratesAverage(movies));
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
+function dramaMoviesRate (movies) {
+    var dramaArr = movies.filter(function (el){
+        return el["genre"].includes("Drama");
+    })
+    var avgDramaRate = ratesAverage(dramaArr);
+    return avgDramaRate;
+}
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 
