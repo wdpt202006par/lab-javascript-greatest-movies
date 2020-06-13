@@ -75,6 +75,26 @@ function getAllDirectors(movies){
    
    orderAlphabetically(movies);
    // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-   
+
+   function turnHoursToMinutes(movies) {
+       var mappedArr = movies.map(function(el){
+           return el['duration'];
+       })
+       var durationArr = mappedArr.map(function(el){
+        var parts = el.split('h');
+        var minutes = Number(parts[0])*60+Number(parts[1]);
+        return minutes;
+       })
+       
+   }
+console.log(turnHoursToMinutes()); // il reste 7 tests
+
+/*
+var str = "3h30";
+var parts = str.split('h');
+var minutes = Number(parts[0])*60+Number(parts[1]);
+alert(minutes); // 210
+
+  */ 
    // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
    
