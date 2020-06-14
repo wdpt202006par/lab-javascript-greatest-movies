@@ -52,17 +52,16 @@ function dramaMoviesRate(movies){
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 
-
 function orderByYear (movies) {
     let result = movies.slice().sort(function(a, b){
-        if (a.year > b.year) {
-        if (a.name > b.name) {
-            return 1
-        } else {
-            return -1;
-        } 
+        if (a.year === b.year) {
+            if (a.title > b.title) {
+                return 1
+            } else {
+                return -1;
+            } 
         }else {
-            return -1;
+            return a.year - b.year;
         }
     })
     return result
