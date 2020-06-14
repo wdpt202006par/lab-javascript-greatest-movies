@@ -87,7 +87,22 @@ function orderAlphabetically (movies) {
 }
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
+function turnHoursToMinutes(movies){
 
 
+    let moviesWithMins = movies.map(
+
+        function(movie) {
+            duration = movie.duration.split(' ')
+            hours = Number(duration[0].split('h')[0])
+            mins = Number(duration[1].split("min")[0])
+            //console.log(hours, mins, hours * 60 + mins)
+            movie.duration = mins + (hours * 60)
+        return movie
+        }
+    )
+
+    return moviesWithMins
+}
 
 // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
