@@ -34,14 +34,40 @@ function ratesAverage(movies){
       }
       });
     console.log(reducer);  
-    var average = reducer.reduce(function (accumulator, cucurrentValue) {
+    var sum = reducer.reduce(function (accumulator, cucurrentValue) {
       return (accumulator + cucurrentValue)
-      }, 0 );
-    return Math.round((average/reducer.length)*100)/100
+      });
+    return Math.round((sum/reducer.length)*100)/100
   }
 }
   console.log(ratesAverage(movies));
 // Iteration 4: Drama movies - Get the average of Drama Movies
+function dramaMoviesRate(movies){
+  let dramaMovies=[];
+  for (let j=0; j<movies.length; j++){
+    for(let i=0; i<movies[j].genre.length ; i++){
+      if (movies[j].genre[i]=== "Drama"){
+        if(movies[j].rate>0){
+          dramaMovies.push(movies[j].rate)
+        }else{
+          dramaMovies.push(0)
+        }
+      }else{
+        continue;
+      }
+    }
+  }
+  console.log(dramaMovies);
+  if(dramaMovies.length===0){
+    return 0;
+  }else{  
+    var sum = dramaMovies.reduce(function (accumulator, cucurrentValue) {
+      return (accumulator + cucurrentValue)
+      });
+    return Math.round((sum/dramaMovies.length)*100)/100
+  }
+}
+  console.log(dramaMoviesRate(movies));
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 
