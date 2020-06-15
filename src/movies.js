@@ -23,16 +23,44 @@ function howManyMovies(movies) {
 
 function ratesAverage(movies) {
   var sumRate = movies.reduce(function (acc, currentValue) {
-    return acc + currentValue.rate;
+    return acc + currentValue.rate; // How to return 0 if a movie doesn't have rate - Fallback probably but where to place it ?
   }, 0);
   var avg = sumRate / movies.length;
   console.log(avg);
-  return avg.toFixed(2);
+  return Number(avg.toFixed(2)) || 0;
 }
+
+// ratesAverage(movies);
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 
+function dramaMoviesRate(movies) {
+  var dramaSum = movies
+    .filter(function (el) { // .filter() returns an array with the condition included.
+      return el.genre.includes("Drama"); //WARNING: .includes() returns a boolean value and NOT an array therefore .length does not work = infinity.
+    })
+    .reduce(function (acc, currentValue) {
+      return acc + currentValue.rate;
+    }, 0);
+  var dramaMovieNum = movies
+    .filter(function (el) {
+      return el.genre.includes("Drama");
+    }).length;
+  var dramaRate = dramaSum / dramaMovieNum;
+  return Number(dramaRate.toFixed(2)) || 0;
+}
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
+
+function orderByYear(movies) {
+  var sortedMovies = movies.map(function (el) {
+    return el.sort(function (a, b) {
+      if (a < b) return -1;
+      if (a > b) return 1;
+      if (a = b) return 0;
+    })
+  })
+  return sortedMovies;
+}
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 
