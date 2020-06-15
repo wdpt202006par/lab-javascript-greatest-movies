@@ -2966,10 +2966,3 @@ let movies = [{
     "rate": 8
   }
 ]
-
-console.log(movies
-  .filter(function (el) {
-    return el.genre.includes("Drama");
-  }).length)
-
-console.log(movies.length);

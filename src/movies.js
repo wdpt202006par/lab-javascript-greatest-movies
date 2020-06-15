@@ -52,14 +52,14 @@ function dramaMoviesRate(movies) {
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 
 function orderByYear(movies) {
-  var sortedMovies = movies.map(function (el) {
-    return el.sort(function (a, b) {
-      if (a < b) return -1;
-      if (a > b) return 1;
-      if (a = b) return 0;
-    })
+  var sortedMovies = movies.slice(0); // .slice(<startingIndexNumber>) copy an array. Why not using .map() ?
+  return sortedMovies.sort(function (a, b) {
+    if (a.year < b.year) return -1;
+    if (a.year > b.year) return 1;
+    if (a.year === b.year) return 0;
   })
-  return sortedMovies;
+})
+return sortedMovies;
 }
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
