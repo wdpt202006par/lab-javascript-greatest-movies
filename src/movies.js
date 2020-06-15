@@ -54,14 +54,19 @@ function dramaMoviesRate(movies) {
 function orderByYear(movies) {
   var sortedMovies = movies.slice(0); // .slice(<startingIndexNumber>) copy an array. Why not using .map() ?
   return sortedMovies.sort(function (a, b) {
+    // return a.year - b.year;
     if (a.year < b.year) return -1;
     if (a.year > b.year) return 1;
     if (a.year === b.year) return 0;
+    //         // sortedMovies.sort(function (a, b) {
+    //       //   var nameA = a.name.toUpperCase();
+    //       //   var nameB = b.name.toUpperCase();
+    //       //   if (nameA < nameB) return -1;
+    //       //   if (nameA > nameB) return 1;
+    //       //   if (nameA === nameB) return 0;
+    //       // })
   })
-})
-return sortedMovies;
 }
-
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
