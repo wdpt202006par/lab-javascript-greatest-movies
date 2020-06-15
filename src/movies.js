@@ -69,6 +69,40 @@ function orderByYear(movies) {
 }
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 
+/*
+1- GET ALL MOVIE TITLES ORDERED FROM A - Z
+2- RETURN AN ARRAY WITH THE 20 FIRST TITLE ORDERED
+3- IF LESS THAN 20 MOVIES AVAILABLE IN THE ARRAY PRINT THEM ALL
+*/
+
+function orderAlphabetically(movies) {
+  var alphaBMovies = movies.splice(0);
+  var titleList = [];
+  var orderedTitle = alphaBMovies.sort(function (a, b) {
+    var nameA = a.name;
+    var nameB = b.name;
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+    if (nameA === nameB) return 0;
+  })
+  orderedTitle.map(function (el) {
+    return titleList.push(el.title);
+  })
+
+  // if (orderedTitle.length > 20) {
+  //   for (let i = 0; i === 19; i++) {
+  //     titleList.push(orderedTitle[i].title)
+  //   }
+  // } else {
+  //   for (let i = 0; i < orderedTitle.length; i++) {
+  //     titleList.push(orderedTitle[i].title)
+  //   }
+  // }
+  return titleList;
+}
+
+
+
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 
 // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
