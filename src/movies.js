@@ -72,18 +72,29 @@ function dramaMoviesRate(movies){
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 function orderByYear(movies){
   var moviesCopy= movies.slice();
+  moviesCopy.sort((a, b) => a.title.localeCompare(b.title));
   moviesCopy.sort(function (a, b) {
-  return a.title.localeCompare(b.title);
-});
-  moviesCopy.sort(function (a, b) {
-  return a.year - b.year;
-});
+    return a.year - b.year;
+  });
   return moviesCopy
 }
 
 console.log(orderByYear(movies))
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-
+function orderAlphabetically(movies){
+  var moviesCopy= movies.slice();
+  moviesCopy.sort((a, b) => a.title.localeCompare(b.title));
+  let topTitle=[];
+  for (let i=0; i<moviesCopy.length; i++){
+    topTitle.push(moviesCopy[i].title)
+  }
+  if (topTitle.length>20){
+    return topTitle.slice(0,20);
+  }else{
+  return topTitle
+  }
+}
+console.log(orderAlphabetically(movies))
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 
 // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
