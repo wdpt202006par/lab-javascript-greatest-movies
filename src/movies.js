@@ -53,8 +53,11 @@ function dramaMoviesRate(movies){
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 
 function orderByYear (movies) {
+
     let result = movies.slice().sort(function(a, b){
+
         if (a.year === b.year) {
+
             if (a.title > b.title) {
                 return 1
             } else {
@@ -76,8 +79,7 @@ function orderAlphabetically (movies) {
       titles.push(movie.title)
     }  
     
-    let result = titles.sort()
-    
+    let result = titles.sort()    
     if (result.length < 20){
         return result
     } else {
@@ -105,3 +107,37 @@ function turnHoursToMinutes(movies){
 }
 
 // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
+
+function getMovieYears(movies){
+
+    let movieYears = movies.reduce((accum, movie) => {
+        if (!accum.includes(movie.year)){accum.push(movie.year)}
+        return accum
+      }, []).sort( (a,b) => a-b);    
+
+    return movieYears 
+}
+
+function bestYearAvg(movies) {
+
+    let years = getMovieYears(movies)
+
+    let yearByAvg = []
+    for (year of years){
+
+        let moviesFilteredByYear = movies.filter(movie => year === movie.year)
+
+        let avgOfYear = moviesFilteredByYear.reduce(
+            (accum, movie) => accum + movie.rate, 0) / moviesFilteredByYear.length
+
+            yearByAvg.push( {year : year, average: avgOfYear})
+    }
+    
+    let bestYear = yearByAvg.sort((a, b) => b.average - a.average )[0] 
+
+    return `The best year was ${bestYear.year} with an average rate of ${bestYear.average}`
+
+    
+}
+  
+
