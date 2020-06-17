@@ -97,4 +97,25 @@ function orderAlphabetically(movies){
 console.log(orderAlphabetically(movies))
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 
+function turnHoursToMinutes(movies){
+  var moviesCopy= movies.slice();
+  var durationCopy=[];
+  var h;
+  var m;
+  for(i=0; i<moviesCopy.length; i++){
+    durationCopy=(moviesCopy[i].duration.split(' '));
+    h=parseInt(durationCopy[0]);
+    if(durationCopy.length>1){
+      m=parseInt(durationCopy[1]);
+    }else {
+      m=0;
+    }
+    
+    moviesCopy[i].duration=(h*60)+m;
+    
+  }
+  return moviesCopy
+}
+turnHoursToMinutes(movies)
+
 // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
