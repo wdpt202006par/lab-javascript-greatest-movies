@@ -119,3 +119,30 @@ function turnHoursToMinutes(movies){
 turnHoursToMinutes(movies)
 
 // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
+
+function bestYearAvg(movies){
+  if(movies.length===0){
+    return null
+  }else{
+    let ordredMovies=orderByYear(movies);
+    console.log(ordredMovies);
+    var year=ordredMovies[0].year;
+    var averageRate=ordredMovies[0].rate;
+    var bestAverage=0;
+    var bestYear=0;
+    for (i=1; i<ordredMovies.length; i++){
+      if(ordredMovies[i].year===year){
+        averageRate= (averageRate+ ordredMovies[i].rate)/2;
+      }else {
+        if(bestAverage< averageRate){
+          bestAverage=averageRate;
+          bestYear=year;
+        }
+        year=ordredMovies[i].year;
+        averageRate=ordredMovies[i].rate;
+      }
+    }
+    console.log(`The best year was ${bestYear} with an average rate of ${bestAverage}`)
+  }
+}
+bestYearAvg(movies)
