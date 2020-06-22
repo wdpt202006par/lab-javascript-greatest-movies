@@ -22,9 +22,14 @@ function howManyMovies(movies) {
 // Iteration 3: All rates average - Get the average of all rates with 2 decimals
 
 function ratesAverage(movies) {
-  var sumRate = movies.reduce(function (acc, currentValue) {
-    return acc + currentValue.rate; // How to return 0 if a movie doesn't have rate - Fallback probably but where to place it ?
-  }, 0);
+  var sumRate = movies
+    .filter((el) => {
+      return el.rate > 0;
+    })
+    .reduce(function (acc, currentValue) {
+      return acc + currentValue.rate;
+    }, 0);
+
   var avg = sumRate / movies.length;
   console.log(avg);
   return Number(avg.toFixed(2)) || 0;
@@ -36,16 +41,16 @@ function ratesAverage(movies) {
 
 function dramaMoviesRate(movies) {
   var dramaSum = movies
-    .filter(function (el) { // .filter() returns an array with the condition included.
+    .filter(function (el) {
+      // .filter() returns an array with the condition included.
       return el.genre.includes("Drama"); //WARNING: .includes() returns a boolean value and NOT an array therefore .length does not work = infinity.
     })
     .reduce(function (acc, currentValue) {
       return acc + currentValue.rate;
     }, 0);
-  var dramaMovieNum = movies
-    .filter(function (el) {
-      return el.genre.includes("Drama");
-    }).length;
+  var dramaMovieNum = movies.filter(function (el) {
+    return el.genre.includes("Drama");
+  }).length;
   var dramaRate = dramaSum / dramaMovieNum;
   return Number(dramaRate.toFixed(2)) || 0;
 }
@@ -57,15 +62,18 @@ function orderByYear(movies) {
     // return a.year - b.year;
     if (a.year < b.year) return -1;
     if (a.year > b.year) return 1;
-    if (a.year === b.year) return 0;
-    //         // sortedMovies.sort(function (a, b) {
-    //       //   var nameA = a.name.toUpperCase();
-    //       //   var nameB = b.name.toUpperCase();
-    //       //   if (nameA < nameB) return -1;
-    //       //   if (nameA > nameB) return 1;
-    //       //   if (nameA === nameB) return 0;
-    //       // })
-  })
+    if (a.year === b.year)
+      //{
+      //   sortedMovies.sort(function (a, b) {
+      //     var nameA = a.name.toUpperCase();
+      //     var nameB = b.name.toUpperCase();
+      //     if (nameA < nameB) return -1;
+      //     if (nameA > nameB) return 1;
+      //     if (nameA === nameB) return 0;
+      //   });
+      // }
+      return 0;
+  });
 }
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 
@@ -76,7 +84,7 @@ function orderByYear(movies) {
 */
 
 function orderAlphabetically(movies) {
-  var alphaBMovies = movies.splice(0);
+  var alphaBMovies = movies.slice(0);
   var titleList = [];
   var orderedTitle = alphaBMovies.sort(function (a, b) {
     var nameA = a.name;
@@ -84,24 +92,17 @@ function orderAlphabetically(movies) {
     if (nameA < nameB) return -1;
     if (nameA > nameB) return 1;
     if (nameA === nameB) return 0;
-  })
+  });
   orderedTitle.map(function (el) {
     return titleList.push(el.title);
-  })
-
-  // if (orderedTitle.length > 20) {
-  //   for (let i = 0; i === 19; i++) {
-  //     titleList.push(orderedTitle[i].title)
-  //   }
-  // } else {
-  //   for (let i = 0; i < orderedTitle.length; i++) {
-  //     titleList.push(orderedTitle[i].title)
-  //   }
-  // }
-  return titleList;
+  });
+  if (titleList.length > 20) {
+    var shortenList = titleList.slice(0, 20);
+    return shortenList;
+  } else {
+    return titleList;
+  }
 }
-
-
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 
